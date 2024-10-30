@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: ba8a987c4918fc14a9b9cf398d291c29
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - statOfUnit: {instanceID: 0}
+  - originPosition: {instanceID: 0}
+  - targetPlayer: {instanceID: 0}
+  - attackRange: {instanceID: 0}
+  - enemyStat: {instanceID: 0}
+  - coin: {instanceID: 0}
+  - objectToClone: {fileID: 11400000, guid: 97716196fc4e46847b127d9634586f16, type: 2}
+  - hpPlayer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

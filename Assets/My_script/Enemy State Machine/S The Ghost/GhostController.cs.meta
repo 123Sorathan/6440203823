@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b357573eaff98be4db1d43cf995912f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - statOfUnit: {fileID: 11400000, guid: 7901eb5238af8c04d90bf07635c149c5, type: 2}
+  - originPosition: {instanceID: 0}
+  - targetPlayer: {instanceID: 0}
+  - attackRange: {instanceID: 0}
+  - enemyStat: {instanceID: 0}
+  - fireballPrefab: {instanceID: 0}
+  - objectToClone: {instanceID: 0}
+  - enemyCount: {instanceID: 0}
+  - hpPlayer: {instanceID: 0}
+  - patrolState: {instanceID: 0}
+  - chasingState: {instanceID: 0}
+  - attackState: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
