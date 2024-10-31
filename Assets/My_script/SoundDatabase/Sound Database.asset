@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f656272a41075124ebfb2198e69a55d1, type: 3}
+  m_Name: Sound Database
+  m_EditorClassIdentifier: 
+  mainMenuMusic: {fileID: 8300000, guid: 38796ce26b739b84b9a403f086869782, type: 3}
+  level1Music: {fileID: 8300000, guid: 36915815bcbf20b42b071148cda1ab2c, type: 3}
+  level2Music: {fileID: 8300000, guid: 64b3c0e17d356dc47b809a90b0b3703e, type: 3}
+  level3Music: {fileID: 8300000, guid: cdbab268a5a3b4940a3fe89f86e98a13, type: 3}
+  level4Music: {fileID: 8300000, guid: 9391da3246f53454699c7f7b2e01c6a7, type: 3}
+  endCreditMusic: {fileID: 8300000, guid: 5a882a8ba72cb8748af713aeeba40ef6, type: 3}
+  winMusic: {fileID: 8300000, guid: 46d91b6148b4a3c49b527113ed2ee931, type: 3}
+  loseMusic: {fileID: 8300000, guid: 19a759e6cc239564782178ae5810046f, type: 3}
+  attackSound: {fileID: 8300000, guid: f5b0e9743f976bf41862acbd1c775159, type: 3}
+  deadSound: {fileID: 8300000, guid: 840a927bbc4c94941a59f1e3562da88b, type: 3}
+  collectCoinSound: {fileID: 8300000, guid: febd67a944d7fad439dd1bc2e9b40546, type: 3}
+  enterDoorSound: {fileID: 8300000, guid: dc642a0c4037b314b9b0bca85caf9257, type: 3}
+  enemyHitplayerSound: {fileID: 8300000, guid: 7b9bdc068aa26434cbd88e74abcdbb6a, type: 3}
+  jumpSound: {fileID: 8300000, guid: d399fe10604bea843bab326ad2d21740, type: 3}
+  EnemyPatroSound: {fileID: 8300000, guid: e92e8e5d7af339348b0d2f453b1f8026, type: 3}
+  EnemySound: {fileID: 8300000, guid: d1c491efdb8d04e448d0b26d0affe9c5, type: 3}
+  clickSound: {fileID: 8300000, guid: 4aaeef5e9192d8748904c58550e62d98, type: 3}
+  warningSound: {fileID: 8300000, guid: ea6c1a228e6b240408a7b91a40bfbd93, type: 3}
+  mouseOnUISound: {fileID: 8300000, guid: af668771e4879214197fe4a93988e339, type: 3}
+  upgradeSound: {fileID: 8300000, guid: 2715d8b952e6d5f47bd81f5898b400d4, type: 3}

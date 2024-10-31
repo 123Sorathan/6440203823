@@ -24,18 +24,30 @@ public class CheckProgression : MonoBehaviour
     [SerializeField] private float fadeOutSpeed;
     [SerializeField] private bool isFadeFinished;
 
+    [SerializeField] private MusicController musicController;
+    private UISoundController uISoundController;
+
+
+    private void Start()
+    {
+        uISoundController = GameObject.FindGameObjectWithTag("UISounEffect").GetComponent<UISoundController>();
+
+    }
+
     public void CheckProgressLevel1()
     {
         if(PlayerPrefs.HasKey("Level_1"))
         {
             loadingScreen.SetActive(true);
             StartCoroutine(LoadYourAsyncScene("Level_2"));
+            uISoundController.ClickSound();
         }
         else
         {
             //Show Notification UI
             notificationAlpha.alpha = 1;
             isFadeFinished = true;
+            uISoundController.WarningSound();
         }
     }
 
@@ -45,12 +57,14 @@ public class CheckProgression : MonoBehaviour
         {
             loadingScreen.SetActive(true);
             StartCoroutine(LoadYourAsyncScene("Level_3"));
+            uISoundController.ClickSound();
         }
         else
         {
             //Show Notification UI
             notificationAlpha.alpha = 1;
             isFadeFinished = true;
+            uISoundController.WarningSound();
         }
     }
 
@@ -60,12 +74,14 @@ public class CheckProgression : MonoBehaviour
         {
             loadingScreen.SetActive(true);
             StartCoroutine(LoadYourAsyncScene("Level_4"));
+            uISoundController.ClickSound();
         }
         else
         {
             //Show Notification UI
             notificationAlpha.alpha = 1;
             isFadeFinished = true;
+            uISoundController.WarningSound();
         }
     }
 

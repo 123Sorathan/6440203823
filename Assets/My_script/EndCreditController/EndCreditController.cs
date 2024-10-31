@@ -18,6 +18,15 @@ public class EndCreditController : MonoBehaviour // Control End Credit
     [Header("Check Win Condition")]
     [SerializeField] private CheckWinConditionLevel1 checkWinCondition;
 
+    [Header("Music Controller")]
+    private bool isPlayEndCreditMusic;
+    private MusicController musicController;
+
+    private void Start()
+    {
+        musicController = GameObject.FindGameObjectWithTag("MusicController").GetComponent<MusicController>();
+    }
+
     private void Update()
     {
         StartFadeOutWinUIIfWin();
@@ -40,6 +49,12 @@ public class EndCreditController : MonoBehaviour // Control End Credit
 
     private void StartFadeInEndCredit() //Start Fade In End Credit
     {
+        if(isEndCreditStart == true && isPlayEndCreditMusic == false)
+        {
+            musicController.ChangeToTemporalMusic("endCreditMusic");
+            isPlayEndCreditMusic = true;
+        }
+
         if(isEndCreditStart == true)
         {
             winUIBlockRaycast.enabled = false; // disable Graphic Raycaster

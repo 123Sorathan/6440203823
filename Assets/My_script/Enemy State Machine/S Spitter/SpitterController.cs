@@ -21,6 +21,9 @@ public class SpitterController : MonoBehaviour
     public GameObject coin;
 
     public Animator animator;
+    //[SerializeField] private MusicController musicController;
+
+    //public EnemySoundEffetController enemySoundEffetController;
 
     private SpitterBaseState currentState;
     public  SpitterPatrolState patrolState = new();
@@ -35,6 +38,8 @@ public class SpitterController : MonoBehaviour
         hpPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<HP_Player>();
         enemyStat = GetComponentInParent<EnemyStat>();
         animator = GetComponentInParent<Animator>();
+
+        //enemySoundEffetController = GetComponentInParent<EnemySoundEffetController>();
     }
 
     private void Start()

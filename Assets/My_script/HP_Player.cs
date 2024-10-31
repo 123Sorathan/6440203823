@@ -26,6 +26,7 @@ public class HP_Player : MonoBehaviour
     [SerializeField] private StatOfUnit statOfUnit;
     public bool isPoison;
     [SerializeField] private CheckWinConditionLevel1 checkWinCondition;
+    private PlayerSoundEffectController playerSoundEffectController;
 
     // [SerializeField] GameObject panelToShow;
     // public Camera playerCamera;
@@ -35,6 +36,11 @@ public class HP_Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBer.SetMaxHealth(maxHealth);
         checkWinCondition = GameObject.FindGameObjectWithTag("CheckWInCondition").GetComponent<CheckWinConditionLevel1>();
+
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
+        }
 
         hitEffectParent.Pause();
         hitEffectchild.Pause();
@@ -50,6 +56,8 @@ public class HP_Player : MonoBehaviour
     {
         if(checkWinCondition.isWin == false)
         {
+            playerSoundEffectController.StartPlayEnemyHitPlayerSound(); // play enemy hit player sound
+
             currentHealth = currentHealth - (damage - armor);
 
             healthBer.SetHealth(currentHealth);

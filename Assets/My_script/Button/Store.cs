@@ -61,7 +61,7 @@ public class Store : MonoBehaviour
     public void IsUpAttackButtonclicked()
     {
 
-        if(isUpDamageBuy == false)
+        if(coin.coinCount >= 3 && isUpDamageBuy == false)
         {
             isUpDamageBuy = true;
             Up_Demage.enabled = false;
@@ -78,12 +78,12 @@ public class Store : MonoBehaviour
     }
     public void IsUpLPButtonclicked()
     {
-        if(isUpLpBuy == false)
+        if(coin.coinCount >= 4 && isUpLpBuy == false)
         {
             isUpLpBuy = true;
             Up_LP.enabled = false;
             Debug.Log("ซื้อแล้ว");
-            coin.coinCount = coin.coinCount - 8;
+            coin.coinCount = coin.coinCount - 4;
             
             if(stat.countdeath <= 5)
             {
@@ -101,12 +101,12 @@ public class Store : MonoBehaviour
     public void IsUpDefenseButtonclicked()
     {
 
-        if (isUpDefenseBuy == false)
+        if (coin.coinCount >= 4 && isUpDefenseBuy == false)
         {
             isUpDefenseBuy = true;
             Up_Defense.enabled = false;
             Debug.Log("ซื้อแล้ว");
-            coin.coinCount = coin.coinCount - 3;
+            coin.coinCount = coin.coinCount - 4;
             HpPlayer.armor = 3;
 
             showUI_TextDefense();
@@ -116,7 +116,7 @@ public class Store : MonoBehaviour
     public void IsUpAirJumpsButtonclicked()
     {
 
-        if (isUpAirJumpsBuy == false)
+        if (coin.coinCount >= 5 && isUpAirJumpsBuy == false)
         {
             isUpAirJumpsBuy = true;
             Up_AirJumps.enabled = false;
@@ -130,7 +130,7 @@ public class Store : MonoBehaviour
     public void IsUpMovButtonclicked()
     {
 
-        if (isUpMovmentBuy == false)
+        if (coin.coinCount >= 5 && isUpMovmentBuy == false)
         {
             isUpMovmentBuy = true;
             Up_Movment.enabled = false;

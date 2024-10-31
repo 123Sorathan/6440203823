@@ -29,6 +29,10 @@ public class ShadowSlimeController : MonoBehaviour
     [SerializeField] public GameObject HitEffect;
     [SerializeField] GameObject TextPrefab;
 
+    [SerializeField] private MusicController musicController;
+
+    public EnemySoundEffetController enemySoundEffetController;
+
     public GameObject currentHitEffect;
 
     private ShadowSlimeBaseState currentState;
@@ -44,6 +48,8 @@ public class ShadowSlimeController : MonoBehaviour
       enemyStat = GetComponentInParent<EnemyStat>();
       coin = objectToClone.coin;
       enemyCount = GameObject.FindGameObjectWithTag("EnemyCount").GetComponent<EnemyCount>();
+
+      enemySoundEffetController = GetComponentInParent<EnemySoundEffetController>();
     }
 
     private void Start()

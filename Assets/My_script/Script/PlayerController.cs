@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     private float gravty;
 
     private bool isCoolDownAttack = false;
+    private PlayerSoundEffectController playerSoundEffectController;
 
 
 
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         gravty = rb.gravityScale;
+        playerSoundEffectController = GetComponent<PlayerSoundEffectController>();
     }
 
     private void OnDrawGizmos()
@@ -157,6 +159,8 @@ public class PlayerController : MonoBehaviour
         timeSinceAttck += Time.deltaTime;
         if (attack && timeSinceAttck >= timeBetweenAttack && isCoolDownAttack == false)
         {
+            playerSoundEffectController.StartPlayAttackSound();//Play Attack Sound
+
             timeSinceAttck = 0;
             anim.SetTrigger("Attack_1");
             /*if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.3f && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
@@ -405,6 +409,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonUp("Jump") && rb.velocity.y > 0)
         {
+            playerSoundEffectController.StartPlayJumpSound();
             rb.velocity = new Vector2(rb.velocity.x, 0);
             pState.jumping = false;
         }

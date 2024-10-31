@@ -10,6 +10,7 @@ public class SpitterChasingState : SpitterBaseState
     public override void EnterState(SpitterController spitter)
     {
         rb = spitter.gameObject.transform.parent.GetComponent<Rigidbody2D>();
+        //spitter.enemySoundEffetController.EnemySound();
     }
 
     public override void UpdateState(SpitterController spitter)

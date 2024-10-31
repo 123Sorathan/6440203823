@@ -30,7 +30,7 @@ MonoBehaviour:
   - name: Spitter
     hp: 10
     attackPower: 5
-    attackRange: 20
+    attackRange: 6
     attackCoolDown: 1
     movementSpeed: 0.27
     movementRange: 8

@@ -34,7 +34,9 @@ public class PlayerStat : MonoBehaviour // สคริปนี้แสดง�
    [SerializeField] private GameObject ButtonUI_Upgrade;
 
    [SerializeField] private ButtonController animBtton;
+   [SerializeField] private MusicController musicController;
 
+   private PlayerSoundEffectController playerSoundEffectController;
 
     void Start()
     {
@@ -43,6 +45,13 @@ public class PlayerStat : MonoBehaviour // สคริปนี้แสดง�
         HideDeathUI();
         HideLoseUI();
         LoseScene.alpha = 0f;
+
+        musicController = GameObject.FindGameObjectWithTag("MusicController").GetComponent<MusicController>();
+
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
+        }
     }
 
     void Death ()
@@ -52,11 +61,14 @@ public class PlayerStat : MonoBehaviour // สคริปนี้แสดง�
             PlayerPrefs.DeleteKey("Save Coin");
             anim.SetTrigger("Death");
             HideDeathUI();
+            musicController.ChangeToTemporalMusic("loseMusic"); // play lose music
             StopCoroutine(RespawnPlayer());
             ShowLoseUI();
         }
         else if (Hp.currentHealth <= 0 && isDead == true)
         {
+            playerSoundEffectController.StartPlayDeadSound();//Play dead sound
+
             isDead = false; // ตั้ง isDead เป็น false ทันทีหลังจากเข้ามาในเงื่อนไขนี้
             anim.SetTrigger("Death");
             ButtonUI_Upgrade.SetActive(false);
@@ -67,6 +79,8 @@ public class PlayerStat : MonoBehaviour // สคริปนี้แสดง�
             player.rb.velocity = Vector2.zero; // หยุดการเคลื่อนที่ของ Rigidbody
             playerCollider.gameObject.tag = "Untagged"; // เปลี่ยน Tag เป็น "Untagged" 
             player.enabled = false; // ปิดการควบคุมผู้เล่น
+
+            musicController.ChangeToTemporalMusic("loseMusic"); // play lose music
 
             StartCoroutine(RespawnPlayer()); // เริ่มกระบวนการเกิดใหม่
             Debug.Log("เล่นส่วนนี้ dead");
@@ -116,6 +130,8 @@ public class PlayerStat : MonoBehaviour // สคริปนี้แสดง�
             yield return new WaitForSeconds(1f);
             countdown -= 1f;
         }
+
+        musicController.StartPlayMainMusic();
 
         // Start monster ignore player
         StartCoroutine(EnemyIgnorePlayer());

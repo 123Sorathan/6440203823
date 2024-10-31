@@ -19,6 +19,8 @@ TagManager:
   - Beetle
   - Giant Worm
   - CheckWInCondition
+  - MusicController
+  - UISounEffect
   layers:
   - Default
   - TransparentFX

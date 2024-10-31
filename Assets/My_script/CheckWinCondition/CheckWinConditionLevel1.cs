@@ -10,6 +10,8 @@ public class CheckWinConditionLevel1 : MonoBehaviour
     public bool isShowingWinUI;
     public bool IswinUIFullyShow;
 
+    private bool isplayerEnterDoor;
+
     [SerializeField] private GameObject winUI;
     [SerializeField] private GameObject notifyPlayerToFindAKey;
     [SerializeField] private SaveGame saveGame;
@@ -17,13 +19,20 @@ public class CheckWinConditionLevel1 : MonoBehaviour
     [SerializeField] public CanvasGroup Win_UIGroup;
     [SerializeField] private ParticleSystem Effect;
     public Camera mainCamera;
+    private MusicController musicController;
 
+    private PlayerSoundEffectController playerSoundEffectController;
 
     private void Start()
     {
         HitWinUI();
         Effect.Stop();
-        
+
+        musicController = GameObject.FindGameObjectWithTag("MusicController").GetComponent<MusicController>();
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
+        }
 
     }
     private void Update()
@@ -50,10 +59,12 @@ public class CheckWinConditionLevel1 : MonoBehaviour
     //}
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player") && isKeyCollect == false){
+
+        if (other.CompareTag("Player") && isKeyCollect == false){
            //Notify player to find a key
            notifyPlayerToFindAKey.SetActive(true);
            StartCoroutine(HideFindKeyNotification());
+           playerSoundEffectController.StartPlayEnterDoorSound();//Play dead sound
         }
 
         else if (other.CompareTag("Player") && isKeyCollect == true)
@@ -62,9 +73,16 @@ public class CheckWinConditionLevel1 : MonoBehaviour
             //winUI.SetActive(true);
             Effect.Play();
             ShowWinUI();
+            musicController.ChangeToTemporalMusic("winMusic"); // play win music
 
             saveGame.SaveLevel(SceneManager.GetActiveScene().name);
             isWin = true;
+
+            if (!isplayerEnterDoor)
+            {
+                playerSoundEffectController.StartPlayEnterDoorSound();//Play dead sound
+                isplayerEnterDoor = true;
+            }
         }
     }
 

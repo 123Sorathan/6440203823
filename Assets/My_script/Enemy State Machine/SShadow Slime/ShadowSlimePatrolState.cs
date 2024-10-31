@@ -17,6 +17,8 @@ public class ShadowSlimePatrolState : ShadowSlimeBaseState
         destination1 = shadowSlime.originPosition.transform.position + new Vector3(-(shadowSlime.statOfUnit.unitStats[0].movementRange), 0, 0);
         shadowSlime.rb = shadowSlime.gameObject.GetComponentInParent<Rigidbody2D>();
         shadowSlime.jumpTimer = 0f; // ตั้งค่าตัวจับเวลาการกระโดด
+
+        shadowSlime.enemySoundEffetController.enemyPatroSound();
     }
 
     public override void UpdateState(ShadowSlimeController shadowSlime)

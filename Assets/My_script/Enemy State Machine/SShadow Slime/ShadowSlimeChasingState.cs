@@ -10,6 +10,7 @@ public class ShadowSlimeChasingState : ShadowSlimeBaseState
 
     public override void EnterState(ShadowSlimeController shadowSlime){
         rb = shadowSlime.gameObject.transform.parent.GetComponent<Rigidbody2D>();
+        shadowSlime.enemySoundEffetController.EnemySound();
     }
     public override void UpdateState(ShadowSlimeController shadowSlime){
 

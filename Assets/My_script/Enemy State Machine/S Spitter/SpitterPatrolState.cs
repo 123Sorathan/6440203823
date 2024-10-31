@@ -15,6 +15,8 @@ public class SpitterPatrolState : SpitterBaseState
 
         spitter.rd.totalForce = Vector2.zero;
         spitter.rd.velocity = Vector2.zero;
+
+        //spitter.enemySoundEffetController.enemyPatroSound();
     }
 
     public override void UpdateState(SpitterController spitter)
