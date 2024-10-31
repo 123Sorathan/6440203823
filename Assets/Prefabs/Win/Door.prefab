@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2243988008225373621}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: CheckWInCondition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isKeyCollect: 0
   isWin: 0
+  isShowingWinUI: 0
+  IswinUIFullyShow: 0
   winUI: {fileID: 0}
   notifyPlayerToFindAKey: {fileID: 0}
   saveGame: {fileID: 2243988008225373621}

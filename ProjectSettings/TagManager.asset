@@ -18,6 +18,7 @@ TagManager:
   - Firefly
   - Beetle
   - Giant Worm
+  - CheckWInCondition
   layers:
   - Default
   - TransparentFX

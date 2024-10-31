@@ -25,6 +25,7 @@ public class HP_Player : MonoBehaviour
     public int roundOfAttack = 0;
     [SerializeField] private StatOfUnit statOfUnit;
     public bool isPoison;
+    [SerializeField] private CheckWinConditionLevel1 checkWinCondition;
 
     // [SerializeField] GameObject panelToShow;
     // public Camera playerCamera;
@@ -33,6 +34,7 @@ public class HP_Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBer.SetMaxHealth(maxHealth);
+        checkWinCondition = GameObject.FindGameObjectWithTag("CheckWInCondition").GetComponent<CheckWinConditionLevel1>();
 
         hitEffectParent.Pause();
         hitEffectchild.Pause();
@@ -46,22 +48,25 @@ public class HP_Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth = currentHealth - (damage - armor);
-
-       healthBer.SetHealth(currentHealth);
-       
-
-        playerAnimator.SetTrigger("Hit");
-        if (isGrounded)
+        if(checkWinCondition.isWin == false)
         {
-            hitEffectParent.Play();
-        }
-        else { hitEffectchild.Play(); }
+            currentHealth = currentHealth - (damage - armor);
+
+            healthBer.SetHealth(currentHealth);
 
 
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0; 
+            playerAnimator.SetTrigger("Hit");
+            if (isGrounded)
+            {
+                hitEffectParent.Play();
+            }
+            else { hitEffectchild.Play(); }
+
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+            }
         }
     }
 

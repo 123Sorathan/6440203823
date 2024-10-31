@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class SaveGame : MonoBehaviour
 {
-    public void SaveLevel1()
+    public void SaveLevel(string levelName)
     {
-        PlayerPrefs.SetInt("Save Level 1", 1);
-        PlayerPrefs.Save();
-    }
-
-    public void SaveLevel2()
-    {
-        PlayerPrefs.SetInt("Save Level 2", 1);
-        PlayerPrefs.Save();
-    }
-
-    public void SaveLevel3()
-    {
-        PlayerPrefs.SetInt("Save Level 3", 1);
+        PlayerPrefs.SetInt(levelName, 1);
         PlayerPrefs.Save();
     }
 }

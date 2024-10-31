@@ -6,15 +6,28 @@ public class PauseGame : MonoBehaviour
 {
    [SerializeField] private CheckWinConditionLevel1 checkWinCondition;
    [SerializeField] private PlayerStat Dead;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private BoxCollider2D playerCollider;
+
+    private void Start()
+    {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>();
+    }
     private void Update()
     {
-        if(checkWinCondition.isWin == true && checkWinCondition.Win_UIGroup.alpha == 1)
+        if (checkWinCondition.isWin == true)
         {
-            Time.timeScale = 0;
+            playerController.enabled = false;
+            playerController.tag = "Untagged";
+            playerController.transform.position = checkWinCondition.transform.position;
+           // playerCollider.enabled = false;
+            
+            
         }
-        if(checkWinCondition.isWin == false)
+        if (checkWinCondition.isWin == false)
         {
-            Time.timeScale = 1;
+            Continue();
         }
     }
 

@@ -8,11 +8,13 @@ public class CoinController : MonoBehaviour
     public ParticleSystem coinCollectEffect; // ลาก Particle System เข้ามาใน Inspector
     //[SerializeField] TextMeshProUGUI coinText; 
     [SerializeField] private CoinCount countCoin;
-    private bool yes;
     
     private void Awake() {
         //coinText = GameObject.FindGameObjectWithTag("Coin Text").GetComponent<TextMeshProUGUI>();
-        countCoin = GameObject.FindGameObjectWithTag("Player").GetComponent<CoinCount>();   
+        if(GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            countCoin = GameObject.FindGameObjectWithTag("Player").GetComponent<CoinCount>();
+        }
     } 
     
     void OnTriggerEnter2D(Collider2D other)

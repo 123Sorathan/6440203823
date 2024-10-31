@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckWinConditionLevel1 : MonoBehaviour
 {
     public bool isKeyCollect;
     public bool isWin;
+    public bool isShowingWinUI;
+    public bool IswinUIFullyShow;
+
     [SerializeField] private GameObject winUI;
     [SerializeField] private GameObject notifyPlayerToFindAKey;
     [SerializeField] private SaveGame saveGame;
@@ -31,26 +35,36 @@ public class CheckWinConditionLevel1 : MonoBehaviour
         }
     }
 
+    //private void OnTriggerStay2D(Collider2D other) {
+    //    if(other.CompareTag("Player") && isKeyCollect == true)
+    //    {
+    //       //Show Win UI
+    //       //winUI.SetActive(true);
+    //       Effect.Play();
+    //       ShowWinUI();
 
-    private void OnTriggerStay2D(Collider2D other) {
-        if(other.CompareTag("Player") && isKeyCollect == true)
-        {
-           //Show Win UI
-           //winUI.SetActive(true);
-           Effect.Play();
-           ShowWinUI();
 
-
-           saveGame.SaveLevel1();
-           isWin = true;
-        }
-    }
+    //       saveGame.SaveLevel1();
+    //       isWin = true;
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player") && isKeyCollect == false){
            //Notify player to find a key
            notifyPlayerToFindAKey.SetActive(true);
            StartCoroutine(HideFindKeyNotification());
+        }
+
+        else if (other.CompareTag("Player") && isKeyCollect == true)
+        {
+            //Show Win UI
+            //winUI.SetActive(true);
+            Effect.Play();
+            ShowWinUI();
+
+            saveGame.SaveLevel(SceneManager.GetActiveScene().name);
+            isWin = true;
         }
     }
 
@@ -65,6 +79,7 @@ public class CheckWinConditionLevel1 : MonoBehaviour
         Win_UIGroup.alpha = 0f;
         Win_UIGroup.interactable = false;
         Win_UIGroup.blocksRaycasts = false;
+        isShowingWinUI = false;
     }
 
     public void ShowWinUI()
@@ -72,6 +87,7 @@ public class CheckWinConditionLevel1 : MonoBehaviour
         StartCoroutine(WinUI());
         Win_UIGroup.interactable = true;
         Win_UIGroup.blocksRaycasts = true;
+        isShowingWinUI = true;
     }
 
     IEnumerator WinUI()
@@ -81,6 +97,7 @@ public class CheckWinConditionLevel1 : MonoBehaviour
             Win_UIGroup.alpha += Time.deltaTime * 1f; 
             yield return null;
         }
+        IswinUIFullyShow = true;
         Win_UIGroup.alpha = 1f; 
     }
 }
