@@ -42,8 +42,17 @@ public class HP_Player : MonoBehaviour
             playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
         }
 
-        hitEffectParent.Pause();
         hitEffectchild.Pause();
+
+        
+        
+        if (hitEffectParent != null && hitEffectchild != null)
+        {
+            hitEffectParent.Pause();
+            hitEffectchild.Pause();
+        }
+        
+
     }
     void Update()
     {
@@ -64,6 +73,11 @@ public class HP_Player : MonoBehaviour
 
 
             playerAnimator.SetTrigger("Hit");
+
+            // กำหนดตำแหน่งของ hitEffectParent ให้อยู่ด้านบนของผู้เล่น
+            Vector3 abovePlayerPosition = transform.position + new Vector3(0, 5f, 0); // ปรับค่า Y ให้สูงขึ้น
+            hitEffectParent.transform.position = abovePlayerPosition;
+
             if (isGrounded)
             {
                 hitEffectParent.Play();

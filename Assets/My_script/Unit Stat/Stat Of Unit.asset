@@ -51,8 +51,8 @@ MonoBehaviour:
   - name: Beetle
     hp: 10
     attackPower: 2
-    attackRange: 8
-    attackCoolDown: 0.6
+    attackRange: 6
+    attackCoolDown: 1
     movementSpeed: 0.27
     movementRange: 8
   - name: Skeleton

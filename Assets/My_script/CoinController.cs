@@ -12,15 +12,18 @@ public class CoinController : MonoBehaviour
     
     private void Awake() {
 
-        //coinText = GameObject.FindGameObjectWithTag("Coin Text").GetComponent<TextMeshProUGUI>();
-        if(GameObject.FindGameObjectWithTag("Player") != null)
+        if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             countCoin = GameObject.FindGameObjectWithTag("Player").GetComponent<CoinCount>();
             playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
         }
+        else 
+        {
+            playerSoundEffectController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerSoundEffectController>();
+        }
 
-    } 
-    
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

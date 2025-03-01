@@ -51,9 +51,9 @@ public class SpitterAttackState : SpitterBaseState
         {
             spitter.animator.SetBool("spitter_Death", true);
             MonoBehaviour.Instantiate(spitter.coin, spitter.transform.position, Quaternion.identity);
-            spitter.enemyCount.DecreaseEnemyCount("spitter");
-            MonoBehaviour.Destroy(spitter.transform.parent.gameObject, 3f);
+            spitter.enemyCount.DecreaseEnemyCount("Spitter");      
             spitter.isDead = true;
+            MonoBehaviour.Destroy(spitter.transform.parent.gameObject, 0.1f);
         }
     }
 

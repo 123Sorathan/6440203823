@@ -237,6 +237,78 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &270753213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.155302
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3410813
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3519304
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430213645384786450, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422802216030861730, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968979455221950121, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+      propertyPath: m_Name
+      value: UISoundEffectController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+--- !u!114 &270753214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1753894801280219402, guid: f84ec8befc88fea4983d19ca8ac0039a, type: 3}
+  m_PrefabInstance: {fileID: 270753213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39d163ccd4a24a488e618c5fbe2b593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285924800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1629,7 @@ GameObject:
   - component: {fileID: 765607664}
   - component: {fileID: 765607663}
   - component: {fileID: 765607666}
+  - component: {fileID: 765607667}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -1628,7 +1701,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 765607664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 765607667}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: QuitApplication
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 270753214}
+        m_TargetAssemblyTypeName: UISoundController, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &765607664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,6 +1785,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &765607667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765607661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07da77d6dcbd0a4fad600126cfe0900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875403906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1906,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2125882591}
         m_TargetAssemblyTypeName: MainMara, Assembly-CSharp
         m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 270753214}
+        m_TargetAssemblyTypeName: UISoundController, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9411,3 +9532,4 @@ SceneRoots:
   - {fileID: 1534556283}
   - {fileID: 1929193434}
   - {fileID: 361586266}
+  - {fileID: 270753213}
